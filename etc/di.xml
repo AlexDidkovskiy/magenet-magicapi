@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Pavel Usachev <webcodekeeper@hotmail.com>
+ * @copyright Copyright (c) 2018, Pavel Usachev
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference
+            for="MageNet\MagicApi\Api\Model\PaymentTransactionInterface"
+            type="MageNet\MagicApi\Model\PaymentTransaction"
+    />
+    <preference
+            for="MageNet\MagicApi\Api\Model\BillingAddressInterface"
+            type="MageNet\MagicApi\Model\BillingAddress"
+    />
+    <preference
+            for="MageNet\MagicApi\Api\Repository\PaymentGatewayRepositoryInterface"
+            type="MageNet\MagicApi\Model\Repository\PaymentGatewayRepository"
+    />
+    <preference
+            for="MageNet\MagicApi\Api\Repository\BillingAddressRepositoryInterface"
+            type="MageNet\MagicApi\Model\Repository\BillingAddressRepository"
+    />
+    <preference
+            for="MageNet\MagicApi\Normalizer\PaymentTransactionNormalizerInterface"
+            type="MageNet\MagicApi\Normalizer\PaymentTransactionNormalizer"
+    />
+    <preference
+            for="MageNet\MagicApi\Transformer\PaymentTransactionTransformerInterface"
+            type="MageNet\MagicApi\Transformer\PaymentTransactionTransformer"
+    />
+    <preference
+            for="MageNet\MagicApi\Provider\Payment\GatewayConfigProviderInterface"
+            type="MageNet\MagicApi\Provider\Payment\GatewayConfigProvider"
+    />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item
+                        name="payment_grid_listing_data_source"
+                        xsi:type="string"
+                >MageNet\MagicApi\Model\ResourceModel\PaymentTransaction\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

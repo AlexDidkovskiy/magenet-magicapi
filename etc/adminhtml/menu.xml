@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Pavel Usachev <webcodekeeper@hotmail.com>
+ * @copyright Copyright (c) 2017, Pavel Usachev
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+                id="MageNet_MagicApi::magenet_magicapi"
+                title="MageNet"
+                translate="title"
+                module="MageNet_MagicApi"
+                sortOrder="20"
+                dependsOnModule="MageNet_MagicApi"
+                resource="MageNet_MagicApi::all"
+        />
+        <add
+                id="MageNet_MagicApi::system_config"
+                title="Payment Gateway Config"
+                translate="title"
+                module="MageNet_MagicApi"
+                sortOrder="10"
+                parent="MageNet_MagicApi::magenet_magicapi"
+                action="adminhtml/system_config/edit/section/magenet_payment"
+                resource="MageNet_MagicApi::system_config"
+        />
+        <add
+                id="MageNet_MagicApi::payment_transaction_grid"
+                title="Payment Transaction Grid"
+                translate="title"
+                module="MageNet_MagicApi"
+                sortOrder="10"
+                parent="MageNet_MagicApi::magenet_magicapi"
+                action="magenet_magicapi/payment/grid"
+                resource="MageNet_MagicApi::payment_transaction_grid"
+        />
+    </menu>
+</config>
